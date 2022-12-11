@@ -21,9 +21,11 @@
     <div id="header_serve"> </div><!-- 상단바 고정시 필요한 공백 추가 -->
 
 
+
+
 {% for todo in todos %}
 <div id="notice">
-    {{todo.deadline}} 까지
+    {{todo.date}}
 
 
         <div class="title">
@@ -31,30 +33,30 @@
         </div>
 
         <div class="contents">
-            {{todo.contents}}
+            {{todo.content}}
             
         </div>
 
         <div id="bt">
             
           
-          {%if todo.status == 0 %}
+          {%if todo.do == 'need' %}
           <div id="bt">
-            <div class="div1"><input type="submit" onclick="location.href='/security/todo/{{todo.id}}/0'" value="필요"></div>
-            <div class="div2"><input type="submit" onclick="location.href='/security/todo/{{todo.id}}/1'" value="처리중"></div>
-            <div class="div2"><input type="submit" onclick="location.href='/security/todo/{{todo.id}}/2'" value="완료"></div>
+            <div class="div1" onclick="location.href='{{todo}}/need'">필요</div>
+            <div class="div2" onclick="location.href='{{todo}}/ing'" >처리중</div>
+            <div class="div2" onclick="location.href='{{todo}}/end'">완료</div>
         </div>
-          {%elif todo.status == 1 %}
+          {%elif todo.do == 'ing' %}
           <div id="bt">
-            <div class="div2"><input type="submit" onclick="location.href='/security/todo/{{todo.id}}/0'" value="필요"></div>
-            <div class="div1"><input type="submit" onclick="location.href='/security/todo/{{todo.id}}/1'" value="처리중"></div>
-            <div class="div2"><input type="submit" onclick="location.href='/security/todo/{{todo.id}}/2'" value="완료"></div>
+            <div class="div2" onclick="location.href='{{todo}}/need'">필요</div>
+            <div class="div1" onclick="location.href='{{todo}}/ing'" >처리중</div>
+            <div class="div2" onclick="location.href='{{todo}}/end'">완료</div>
         </div>
-           {%elif todo.status == 2 %}
+           {%elif todo.do == 'end' %}
            <div id="bt">
-            <div class="div2"><input type="submit" onclick="location.href='/security/todo/{{todo.id}}/0'" value="필요"></div>
-            <div class="div2"><input type="submit" onclick="location.href='/security/todo/{{todo.id}}/1'" value="처리중"></div>
-            <div class="div1"><input type="submit" onclick="location.href='/security/todo/{{todo.id}}/2'" value="완료"></div>
+            <div class="div2" onclick="location.href='{{todo}}/need'">필요</div>
+            <div class="div2" onclick="location.href='{{todo}}/ing'" >처리중</div>
+            <div class="div1" onclick="location.href='{{todo}}/end'">완료</div>
         </div>
           {% endif %}
 
