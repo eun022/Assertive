@@ -18,17 +18,22 @@ button {
     
   
 }
+#headi .box{
+  color: #ffffff;
 
+}
 #headi {
   font-weight: bold;
     line-height: 5px;
     font-size: 25px;
     position: fixed;
+    grid-template-columns: 9fr 3fr;
+    display: grid;
     top: 0;
-    left: 0%;
+    left: 0;
     right: 0;
     padding: 8px 12px;
-    height: 20px;
+    height: 50px;
     padding: 2rem;
     color: white;
     align-items: center;
