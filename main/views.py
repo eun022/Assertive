@@ -93,7 +93,7 @@ def write(request, board_id):
     if not request.user.is_authenticated:
         return redirect('/')
     return render(request, 'write.html',
-                  {'board_id': board_id, 'board_type': Board.objects.get(id=board_id).description})
+                  {'board_id': board_id, 'board_type': Board.objects.get(id=board_id)})
 
 
 def write_post(request, board_id):
@@ -150,3 +150,10 @@ def visitor(request):
     )
     visitor.save()
     return redirect('/main/parking')
+
+def delete_comment(request, post_id, comment_id):
+    if not request.user.is_authenticated:
+        return redirect('/')
+    comment = get_object_or_404(Comment, pk=comment_id)
+    comment.delete()
+    return redirect(f'/main/board/{post_id}')

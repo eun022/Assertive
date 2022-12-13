@@ -8,6 +8,7 @@ urlpatterns = [
     path('board/<int:post_id>', views.view_post, name='board'),
     path('conv/', views.conv, name='conv'),
     path('board/<int:post_id>/comment', views.add_comment, name='add_comment'),
+    path('board/<int:post_id>/comment/<int:comment_id>/delete', views.delete_comment, name='delete_comment'),
     path('board/write/<int:board_id>', views.write, name='write'),
     path('board/write/<int:board_id>/submit', views.write_post, name='write_post'),
     path('board/<int:post_id>/delete/<int:board_id>', views.delete_post, name='delete_post'),

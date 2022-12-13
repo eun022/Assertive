@@ -14,7 +14,7 @@
             <p>{{board_type}}</p>
         </div>
         <div class="board_write_wrap">
-        <form action="/main/board/write/{{ board_id }}/submit" method="POST">
+        <form action="/main/board/write/{{ board_id.description }}/submit" method="POST">
             {% csrf_token %}
             <div class="board_write">
                 <div class="title">
@@ -24,7 +24,7 @@
                     </dl>
                 </div>
                 <div class="info">
-                        <span style="font-size: 0.7rem;">작성자 익명으로 할 지 선택하시오</span>
+                        <span style="font-size: 0.7rem;">익명</span>
                         <input type="checkbox" name="anonymous" values="y">
                 </div>
                 <div class="cont">
@@ -35,7 +35,7 @@
             </div>
             <div class="bt_wrap">
                 <a><input id="sungbin" type="submit"  value="등록"></a>
-                <a href="/board/{{board_type.id}}">취소</a>
+                <a href="/main/board/list/{{board_type.id}}">취소</a>
                 <style>
                 #sungbin {
                     text-align: center;
