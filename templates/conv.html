@@ -18,7 +18,7 @@
         </div>
 
         <div class="imgBox">
-            <img src="{% static 'main/{{content.image_path}}'%}">
+            <img src="{% get_static_prefix%}/main/{{content.image_path}}">
         </div>
 
         <div class="inform">
