@@ -102,8 +102,9 @@
                 <div>
                 
                 {%for c in comment %}
+                <div class="coma">
                     {%if c.isAnonymous == True%}
-                    <div class="coma">
+                    
                         <dl>
                             <dt><strong>익명</strong></dt>
                             <dd style="word-break:break-all" >{{contents}}</dd>
@@ -113,8 +114,8 @@
                             <dt><strong>{{c.auther}}</strong></dt>
                             <dd style="word-break:break-all" >{{c.contents}}</dd>
                         </dl>
-                    </div>
-                    {%endif%}
+                    {% endif %}
+                </div>
              {% endfor %}
 
 
